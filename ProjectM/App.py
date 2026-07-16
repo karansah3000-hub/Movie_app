@@ -299,9 +299,9 @@ if opt=="Home":
           st.warning(f"Missing file: {image_path}")
           return ""
        
-    image_buttons = {POSTER_DIR / "JW4.jpg": {"url": "...","title": "John Wick Chapter 4"},POSTER_DIR / "HTTYD.jpg": {"url": "...","title": "How to Train Your Dragon"},POSTER_DIR / "OB.jpg": {"url": "...","title": "Obsession"},
-                     POSTER_DIR / "EDB.jpg": {"url": "...","title": "Evil Dead Burn"},POSTER_DIR / "AIW.jpg": {"url": "...","title": "Avengers Infinity War"},POSTER_DIR / "GVK2.jpg": {"url": "...","title": "Godzilla vs Kong"},
-                     POSTER_DIR / "POTCAWE.jpg": {"url": "...","title": "Pirates of the Caribbean"},POSTER_DIR / "PHM.jpg": {"url": "...","title": "Project Hail Mary"},POSTER_DIR / "FRK.jpg": {"url": "...","title": "Frankenstein"}}
+    image_buttons = {POSTER_DIR / "JW4.jpg": {"url": "https://www.rottentomatoes.com/m/john_wick_chapter_4","title": "John Wick Chapter 4"},POSTER_DIR / "HTTYD.jpg": {"url": "https://www.rottentomatoes.com/m/how_to_train_your_dragon","title": "How to Train Your Dragon"},POSTER_DIR / "OB.jpg": {"url": "https://www.rottentomatoes.com/m/obsession_2025","title": "Obsession"},
+                     POSTER_DIR / "EDB.jpg": {"url": "https://www.rottentomatoes.com/m/evil_dead_burn","title": "Evil Dead Burn"},POSTER_DIR / "AIW.jpg": {"url": "https://www.rottentomatoes.com/m/avengers_infinity_war","title": "Avengers Infinity War"},POSTER_DIR / "GVK2.jpg": {"url": "https://www.rottentomatoes.com/m/godzilla_vs_kong","title": "Godzilla vs Kong"},
+                     POSTER_DIR / "POTCAWE.jpg": {"url": "https://www.rottentomatoes.com/m/pirates_of_the_caribbean_3","title": "Pirates of the Caribbean"},POSTER_DIR / "PHM.jpg": {"url": "https://www.rottentomatoes.com/m/project_hail_mary","title": "Project Hail Mary"},POSTER_DIR / "FRK.jpg": {"url": "https://www.rottentomatoes.com/m/frankenstein_2025","title": "Frankenstein"}}
     hover_css="""
     <style>
     .img-button-container{ display: flex;gap: 30px;flex-wrap: wrap;padding: 15px 0;}
