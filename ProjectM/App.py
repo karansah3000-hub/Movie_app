@@ -102,7 +102,8 @@ csv_path = BASE_DIR / "Movie.csv"
 df = pd.read_csv(csv_path)
 df.info()
 with st.sidebar:
-    st.image("BG/wlcm.gif")
+    BASE_DIR = Path(__file__).resolve().parent
+    gif_path = BASE_DIR / "BG" / "wlcm.gif"
     st.title("📋 DASHBOARD 📋")
     st.markdown("""
     <style>
