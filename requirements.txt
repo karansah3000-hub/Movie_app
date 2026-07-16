@@ -1,11 +1,9 @@
 
 streamlit
-plotly.express
 pandas
 random
 numpy
 matplotlib
 seaborn
 base64
-plotly.graph_objects
 time
