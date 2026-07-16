@@ -11,13 +11,18 @@ import plotly.graph_objects as go
 import time
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
+BG_DIR = BASE_DIR / "BG"
+POSTER_DIR = BASE_DIR / "posters"
+csv_path = BASE_DIR / "Movie.csv"
+
 def get_base64_image(image_path):
       try:
          with open(image_path,"rb") as img_file:
             return base64.b64encode(img_file.read()).decode()
       except FileNotFoundError:
          return ""
-backgrounds = ["BG/bg1.jpg","BG/bg2.jpg","BG/bg3.jpg","BG/bg4.jpg","BG/bg5.jpg"] 
+backgrounds = [BG_DIR / "bg1.jpg",BG_DIR / "bg2.jpg",BG_DIR / "bg3.jpg",BG_DIR / "bg4.jpg",BG_DIR / "bg5.jpg"] 
 selected_background = random.choice(backgrounds)
 background_base64 = get_base64_image(selected_background)
 st.markdown(
@@ -96,14 +101,13 @@ st.markdown("""
 
 ###########################################
 
-BASE_DIR = Path(__file__).resolve().parent
 csv_path = BASE_DIR / "Movie.csv"
-
 df = pd.read_csv(csv_path)
 df.info()
 with st.sidebar:
     BASE_DIR = Path(__file__).resolve().parent
     gif_path = BASE_DIR / "BG" / "wlcm.gif"
+    st.image(BG_DIR / "wlcm.gif")
     st.title("📋 DASHBOARD 📋")
     st.markdown("""
     <style>
@@ -180,7 +184,7 @@ if opt=="Home":
 
    
        
-    banner_base64 = get_base64_image("posters/Ban.jpg")
+    banner_base64 = get_base64_image(POSTER_DIR / "Ban.jpg")
     st.markdown(f"""
     <style>
 
@@ -288,15 +292,16 @@ if opt=="Home":
     #####################################################################################################
     def get_base64_image(image_path):
        try:
+          image_path = Path(image_path)
           with open(image_path,"rb") as img_file:
              return base64.b64encode(img_file.read()).decode()
        except FileNotFoundError:
+          st.warning(f"Missing file: {image_path}")
           return ""
        
-    image_buttons={"posters/JW4.jpg":{"url": "https://www.rottentomatoes.com/m/john_wick_chapter_4", "title": "JOhn Wick: Chapter 4"},"posters/HTTYD.jpg":{"url": "https://www.rottentomatoes.com/m/how_to_train_your_dragon", "title": "How to Train Your Dragon"},"posters/OB.jpg":{"url": "https://www.rottentomatoes.com/m/obsession_2025", "title": "Obsession"},
-                   "posters/EDB.jpg":{"url": "https://www.rottentomatoes.com/m/evil_dead_burn", "title": "Evil Dead Burn"},"posters/AIW.jpg":{"url": "https://www.rottentomatoes.com/m/avengers_infinity_war", "title": "Avengers: Infinity War"},"posters/GVK2.jpg":{"url": "https://www.rottentomatoes.com/m/godzilla_vs_kong", "title": "Godzilla v/s Kong"},
-                   "posters/POTCAWE.jpg":{"url": "https://www.rottentomatoes.com/m/pirates_of_the_caribbean_3", "title": "Pirates Of The Caribbean"},"posters/PHM.jpg":{"url": "https://www.rottentomatoes.com/m/project_hail_mary", "title": "Project Hail Mary"},"posters/FRK.jpg":{"url": "https://www.rottentomatoes.com/m/frankenstein_2025", "title": "Frankenstein(2025)"}}
-
+    image_buttons = {POSTER_DIR / "JW4.jpg": {"url": "...","title": "John Wick Chapter 4"},POSTER_DIR / "HTTYD.jpg": {"url": "...","title": "How to Train Your Dragon"},POSTER_DIR / "OB.jpg": {"url": "...","title": "Obsession"},
+                     POSTER_DIR / "EDB.jpg": {"url": "...","title": "Evil Dead Burn"},POSTER_DIR / "AIW.jpg": {"url": "...","title": "Avengers Infinity War"},POSTER_DIR / "GVK2.jpg": {"url": "...","title": "Godzilla vs Kong"},
+                     POSTER_DIR / "POTCAWE.jpg": {"url": "...","title": "Pirates of the Caribbean"},POSTER_DIR / "PHM.jpg": {"url": "...","title": "Project Hail Mary"},POSTER_DIR / "FRK.jpg": {"url": "...","title": "Frankenstein"}}
     hover_css="""
     <style>
     .img-button-container{ display: flex;gap: 30px;flex-wrap: wrap;padding: 15px 0;}
@@ -721,9 +726,9 @@ elif opt=="Movie Recommender":
    st.write("this page is currently under development.")
    col1,col2=st.columns(2)
    with col1:
-      st.image("BG/CS.gif") 
+      st.image(BG_DIR / "CS.gif")
    with col2:
-      st.image("BG/hardwrk.gif") 
+      st.image(BG_DIR / "hardwrk.gif")
 
 elif opt=="About":
     st.title("🙋🏻‍♂️About:")
