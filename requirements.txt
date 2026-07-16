@@ -1,13 +1,11 @@
-INSTALL AND IMPORT THE FOLLOWING LIBRARIES:
 
-import streamlit as st
-from streamlit_option_menu import option_menu
-import plotly.express as px
-import pandas as pd
-import random
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import base64
-import plotly.graph_objects as go
-import time
+streamlit
+plotly.express
+pandas
+random
+numpy
+matplotlib
+seaborn
+base64
+plotly.graph_objects
+time
